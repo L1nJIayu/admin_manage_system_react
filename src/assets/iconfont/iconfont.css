@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4277509 */
+  src: url('iconfont.woff2?t=1717151163058') format('woff2'),
+       url('iconfont.woff?t=1717151163058') format('woff'),
+       url('iconfont.ttf?t=1717151163058') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-list:before {
+  content: "\e600";
+}
+
+.icon-user:before {
+  content: "\e608";
+}
+
+.icon-home:before {
+  content: "\e6ff";
+}
+
+.icon-logout:before {
+  content: "\e635";
+}
+
+.icon-password:before {
+  content: "\e617";
+}
+
+.icon-eye-show:before {
+  content: "\e754";
+}
+
+.icon-loading:before {
+  content: "\eb80";
+}
+
+.icon-delete:before {
+  content: "\ec7b";
+}
+
+.icon-error:before {
+  content: "\ed1e";
+}
+
+.icon-plus:before {
+  content: "\ed21";
+}
+
+.icon-minus:before {
+  content: "\ed22";
+}
+
+.icon-system:before {
+  content: "\e6a6";
+}
+
+.icon-menu-square:before {
+  content: "\e60d";
+}
+
+.icon-search:before {
+  content: "\e6d0";
+}
+

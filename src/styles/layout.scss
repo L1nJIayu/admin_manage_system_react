@@ -1,0 +1,40 @@
+@use './variable.scss' as var;
+
+.layout {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  .side {
+    width: 100%;
+    max-width: 220px;
+    background-color: var.$color_bg-medium;
+    box-sizing: border-box;
+    border-right: 2px solid var.$color_bg-dark;
+
+    .menu {
+      display: grid;
+      grid-template-rows: 60px 1fr;
+      background-color: var.$color_bg-medium;
+      .top {
+        box-sizing: border-box;
+        border-bottom: 2px solid var.$color_bg-dark;
+      }
+    }
+  }
+  .main {
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    .header {
+      box-sizing: border-box;
+      height: 100%;
+      background-color: var.$color_bg-medium;
+      box-sizing: border-box;
+      border-bottom: 2px solid var.$color_bg-dark;
+    }
+    .container {
+      background-color: var.$color_bg-medium;
+    }
+  }
+}

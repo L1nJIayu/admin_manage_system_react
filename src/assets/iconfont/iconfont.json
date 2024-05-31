@@ -1,0 +1,107 @@
+{
+  "id": "4277509",
+  "name": "Jeffrey后台管理系统",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1282",
+      "name": "列表",
+      "font_class": "list",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "393406",
+      "name": "我",
+      "font_class": "user",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "23359081",
+      "name": "首页",
+      "font_class": "home",
+      "unicode": "e6ff",
+      "unicode_decimal": 59135
+    },
+    {
+      "icon_id": "8760107",
+      "name": "logout",
+      "font_class": "logout",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "10265421",
+      "name": "password",
+      "font_class": "password",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "19705602",
+      "name": "Show",
+      "font_class": "eye-show",
+      "unicode": "e754",
+      "unicode_decimal": 59220
+    },
+    {
+      "icon_id": "4325757",
+      "name": "icon_loading",
+      "font_class": "loading",
+      "unicode": "eb80",
+      "unicode_decimal": 60288
+    },
+    {
+      "icon_id": "6061533",
+      "name": "删除",
+      "font_class": "delete",
+      "unicode": "ec7b",
+      "unicode_decimal": 60539
+    },
+    {
+      "icon_id": "7954390",
+      "name": "错叉_块",
+      "font_class": "error",
+      "unicode": "ed1e",
+      "unicode_decimal": 60702
+    },
+    {
+      "icon_id": "7956834",
+      "name": "加_色块",
+      "font_class": "plus",
+      "unicode": "ed21",
+      "unicode_decimal": 60705
+    },
+    {
+      "icon_id": "7956835",
+      "name": "减_色块",
+      "font_class": "minus",
+      "unicode": "ed22",
+      "unicode_decimal": 60706
+    },
+    {
+      "icon_id": "1160233",
+      "name": "system",
+      "font_class": "system",
+      "unicode": "e6a6",
+      "unicode_decimal": 59046
+    },
+    {
+      "icon_id": "1206321",
+      "name": "menu",
+      "font_class": "menu-square",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "8566950",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e6d0",
+      "unicode_decimal": 59088
+    }
+  ]
+}
