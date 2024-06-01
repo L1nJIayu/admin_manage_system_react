@@ -1,4 +1,5 @@
 import { Menu } from 'antd'
+import '../styles/menu.scss'
 
 const BaseMenu = () => {
   const items = [
@@ -13,7 +14,10 @@ const BaseMenu = () => {
 
   return (
     <div className="menu">
-      <div className="top"></div>
+      <div className="top">
+        <img className="logo" src="/logo.png" alt="logo" />
+        <div className="sysName">后台管理系统</div>
+      </div>
       <Menu items={items} />
     </div>
   )

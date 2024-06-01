@@ -1,0 +1,14 @@
+.menu {
+  .top {
+    box-sizing: border-box;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    .logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 12px;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@use './variable.scss' as var;
+
+.header {
+  box-sizing: border-box;
+  height: 100%;
+  background-color: var.$color_bg-medium;
+  box-sizing: border-box;
+  border-bottom: 2px solid var.$color_bg-dark;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .left {
+    padding: 0 12px;
+    .icon-menu-toggle {
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+  .right {
+    .userInfo {
+      cursor: pointer;
+      margin-right: 8px;
+      display: flex;
+      align-items: center;
+      .avatar {
+        background-color: #87d068;
+      }
+      .nickName {
+        font-size: 1.2rem;
+        margin: 0 8px;
+      }
+    }
+  }
+}

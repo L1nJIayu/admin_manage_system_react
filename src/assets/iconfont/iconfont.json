@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "11903650",
+      "name": "toggle-left",
+      "font_class": "menu-toggle",
+      "unicode": "e6f5",
+      "unicode_decimal": 59125
+    },
+    {
       "icon_id": "1282",
       "name": "列表",
       "font_class": "list",
