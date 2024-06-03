@@ -1,16 +1,19 @@
 import { Menu } from 'antd'
 import '../styles/menu.scss'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const BaseMenu = () => {
-  const items = [
-    { label: '菜单项一', key: 'item-1' }, // 菜单项务必填写 key
-    { label: '菜单项二', key: 'item-2' },
-    {
-      label: '子菜单',
-      key: 'submenu',
-      children: [{ label: '子菜单项', key: 'submenu-item-1' }],
-    },
-  ];
+  const {
+    menuList,
+    collapsed,
+    selectKeys,
+    openKeys
+  } = useSelector(state => state.menu)
+  const navigate = useNavigate()
+  const onClick = ({ key }) => {
+    navigate(key)
+  }
 
   return (
     <div className="menu">
@@ -18,7 +21,13 @@ const BaseMenu = () => {
         <img className="logo" src="/logo.png" alt="logo" />
         <div className="sysName">后台管理系统</div>
       </div>
-      <Menu items={items} />
+      <Menu
+        mode="inline"
+        items={ menuList }
+        inlineCollapsed={ collapsed }
+        defaultSelectedKeys={ selectKeys }
+        defaultOpenKeys={ openKeys }
+        onClick={ onClick } />
     </div>
   )
 }

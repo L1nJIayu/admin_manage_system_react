@@ -2,12 +2,17 @@ import { useNavigate } from 'react-router-dom'
 import '../styles/header.scss'
 
 import { Dropdown, Avatar } from 'antd'
-import { DownOutlined, UserOutlined } from '@ant-design/icons'
+import { DownOutlined, UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { toggleMenu } from '../store/modules/menu'
+import { useSelector } from 'react-redux'
 
 
 const Header = () => {
+  const dispatch = useDispatch()
+  const { collapsed } = useSelector(state => state.menu)
   const [ userInfo, setUserInfo ] = useState({
     nickName: 'admin',
     avatarUrl: ''
@@ -16,7 +21,7 @@ const Header = () => {
   const navigate = useNavigate()
 
   const menuToggle = () => {
-    console.log('menuToggle')
+    dispatch(toggleMenu())
   }
 
   const modifyPassword = () => {
@@ -51,7 +56,9 @@ const Header = () => {
   return (
     <div className="header">
       <div className="left">
-        <i className='iconfont icon-menu-toggle' onClick={ menuToggle } ></i>
+        <span className="menu_toggle_button" onClick={ menuToggle }>
+          {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+        </span>
       </div>
       <div className="right">
         <Dropdown menu={{

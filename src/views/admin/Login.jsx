@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 const Login = () => {
   const navigate = useNavigate()
   const login = () => {
-    navigate('/home')
+    navigate('/m/homepage')
   }
 
   return (
