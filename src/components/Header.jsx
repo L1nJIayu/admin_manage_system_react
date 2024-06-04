@@ -6,7 +6,7 @@ import { DownOutlined, UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { toggleMenu } from '../store/modules/menu'
+import { toggleMenu } from '../store/modules/menu.jsx'
 import { useSelector } from 'react-redux'
 
 

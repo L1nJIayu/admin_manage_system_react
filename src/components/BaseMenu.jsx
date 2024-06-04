@@ -13,7 +13,11 @@ const BaseMenu = () => {
   } = useSelector(state => state.menu)
   const navigate = useNavigate()
   const onClick = ({ key }) => {
+    localStorage.setItem('selectKeys', key)
     navigate(key)
+  }
+  const onOpenChange = (openKeys) => {
+    localStorage.setItem('openKeys', JSON.stringify(openKeys))
   }
 
   return (
@@ -28,7 +32,8 @@ const BaseMenu = () => {
         inlineCollapsed={ collapsed }
         defaultSelectedKeys={ selectKeys }
         defaultOpenKeys={ openKeys }
-        onClick={ onClick } />
+        onClick={ onClick }
+        onOpenChange={ onOpenChange } />
     </div>
   )
 }
