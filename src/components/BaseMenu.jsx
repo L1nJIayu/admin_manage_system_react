@@ -1,8 +1,16 @@
 import { Menu } from 'antd'
-import '../styles/menu.scss'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { HomeOutlined, SettingOutlined } from '@ant-design/icons'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate, useLocation } from 'react-router-dom'
 import classNames from 'classnames'
+import { setSelectKeys } from '../store/modules/menu'
+import '../styles/menu.scss'
+import { useEffect } from 'react'
+
+const iconMap = {
+  'HomeOutlined': <HomeOutlined />,
+  'SettingOutlined': <SettingOutlined />
+}
 
 const BaseMenu = () => {
   const {
@@ -12,6 +20,13 @@ const BaseMenu = () => {
     openKeys
   } = useSelector(state => state.menu)
   const navigate = useNavigate()
+  
+  const dispatch = useDispatch()
+  const location = useLocation()
+  useEffect(() => {
+    dispatch(setSelectKeys(location.pathname))
+  }, [ dispatch, location ])
+
   const onClick = ({ key }) => {
     localStorage.setItem('selectKeys', key)
     navigate(key)
@@ -28,9 +43,9 @@ const BaseMenu = () => {
       </div>
       <Menu
         mode="inline"
-        items={ menuList }
+        items={ menuList.map(item => ({ ...item, icon: iconMap[item.icon] })) }
         inlineCollapsed={ collapsed }
-        defaultSelectedKeys={ selectKeys }
+        selectedKeys={ selectKeys }
         defaultOpenKeys={ openKeys }
         onClick={ onClick }
         onOpenChange={ onOpenChange } />
