@@ -1,6 +1,13 @@
+@use './variable.scss' as var;
 .menu {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  background-color: var.$color_bg-medium;
   .top {
     box-sizing: border-box;
+    border-bottom: 2px solid var.$color_bg-dark;
+    white-space: nowrap;
+    overflow: hidden;
     padding: 12px;
     display: flex;
     align-items: center;
@@ -9,6 +16,20 @@
       height: 30px;
       border-radius: 50%;
       margin-right: 12px;
+      position: relative;
+      transition: all 1s;
+    }
+  }
+}
+.menu-collapsed {
+  .top {
+    .logo {
+      margin-right: 0;
+      position: relative;
+      left: 12px;
+    }
+    .sysName {
+      visibility: hidden;
     }
   }
 }

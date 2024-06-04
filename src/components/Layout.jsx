@@ -3,10 +3,14 @@ import { Outlet } from 'react-router-dom'
 
 import Header from './Header'
 import BaseMenu from './BaseMenu'
+import { useSelector } from 'react-redux'
+import classNames from 'classnames'
 
 const Layout = () => {
+  const { collapsed } = useSelector(state => state.menu)
+
   return (
-    <div className="layout">
+    <div className={classNames('layout', { 'side-collapsed': collapsed })}>
       <div className="side">
         <BaseMenu />
       </div>

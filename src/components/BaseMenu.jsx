@@ -2,6 +2,7 @@ import { Menu } from 'antd'
 import '../styles/menu.scss'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import classNames from 'classnames'
 
 const BaseMenu = () => {
   const {
@@ -16,7 +17,7 @@ const BaseMenu = () => {
   }
 
   return (
-    <div className="menu">
+    <div className={classNames('menu', { 'menu-collapsed': collapsed })}>
       <div className="top">
         <img className="logo" src="/logo.png" alt="logo" />
         <div className="sysName">后台管理系统</div>
