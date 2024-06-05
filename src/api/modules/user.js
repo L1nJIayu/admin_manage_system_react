@@ -1,7 +1,29 @@
 import axios from "../axios"
 
+const tableData = [
+  {
+    id: '1',
+    name: '胡彦斌',
+    age: 32,
+    address: '西湖区湖底公园1号',
+  },
+  {
+    id: '2',
+    name: '胡彦祖',
+    age: 42,
+    address: '西湖区湖底公园1号',
+  },
+]
+
 export function getUserTableDataApi(params) {
-  return axios.get('/', { params })
+  // return axios.get('/', { params })
+  console.log('params', params)
+  return Promise.resolve({
+    data: {
+      list: tableData,
+      total: tableData.length
+    }
+  })
 }
 export function getUserDataApi(id) {
   return axios.get(`/${ id }`)
