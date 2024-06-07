@@ -2,16 +2,12 @@ import axios from "../axios"
 
 const tableData = [
   {
-    id: '1',
-    name: '胡彦斌',
-    age: 32,
-    address: '西湖区湖底公园1号',
-  },
-  {
-    id: '2',
-    name: '胡彦祖',
-    age: 42,
-    address: '西湖区湖底公园1号',
+    id: 1,
+    username: 'admin',
+    nickName: 'Jeffrey',
+    email: 'linjiayu2012@163.com',
+    status: 1,
+    createTime: '2024-06-07 17:38:11'
   },
 ]
 

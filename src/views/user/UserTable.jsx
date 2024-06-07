@@ -6,6 +6,7 @@ import { Select } from "antd";
 import { getUserTableDataApi } from '../../api/modules/user'
 import { useState } from "react";
 import { useEffect } from "react";
+import { USER_STATUS_DICT } from '../../assets/dictionary/user'
 
 const UserTable = () => {
   
@@ -33,11 +34,17 @@ const UserTable = () => {
 
   
   const columns = [
-    { title: 'ID', dataIndex: 'name' },
+    { title: 'ID', dataIndex: 'id' },
     { title: '用户名', dataIndex: 'username' },
     { title: '昵称', dataIndex: 'nickName' },
     { title: '邮箱', dataIndex: 'email' },
-    { title: '状态', dataIndex: 'status' },
+    {
+      title: '状态',
+      dataIndex: 'status',
+      render: (value) => {
+        return USER_STATUS_DICT[value]
+      }
+    },
     { title: '创建时间', dataIndex: 'createTime' },
   ]
   const getTableData = async (searchFormData) => {
