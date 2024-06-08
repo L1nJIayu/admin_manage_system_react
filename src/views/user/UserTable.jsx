@@ -6,15 +6,17 @@ import { Select } from "antd";
 import { getUserTableDataApi } from '../../api/modules/user'
 import { useState } from "react";
 import { useEffect } from "react";
-import { USER_STATUS_DICT } from '../../assets/dictionary/user'
+import {
+  USER_STATUS_ENABLE,
+  USER_STATUS_DISABLE,
+  USER_STATUS_MAP
+} from '../../assets/dictionary/user'
+import { getSelectOptions } from '../../assets/dictionary'
 
 const UserTable = () => {
   
 
-  const statusOptions = [
-    { label: '禁用', value: 0 },
-    { label: '可用', value: 1 }
-  ]
+  const statusOptions = getSelectOptions(USER_STATUS_MAP)
 
   const [form] = useForm()
   const initialValues = {
@@ -30,7 +32,12 @@ const UserTable = () => {
   }, [])
 
   const [ tableData, setTableData ] = useState([])
-  const [ tableDataTotal, setTableDataTotal ] = useState(0)
+  const [ pagination, setPagination ] = useState({
+    position: 'topLeft',
+    current: 3,
+    pageSize: 10,
+    total: 100
+  })
   
   const columns = [
     { title: 'ID', dataIndex: 'id' },
@@ -40,21 +47,34 @@ const UserTable = () => {
     {
       title: '状态',
       dataIndex: 'status',
-      render: (value) => <Tag color="success">{USER_STATUS_DICT[value]}</Tag>
+      render: (value) => {
+        const tagColorMap = {
+          [USER_STATUS_ENABLE]: 'success',
+          [USER_STATUS_DISABLE]: 'default'
+        }
+        return (
+          <Tag color={tagColorMap[value]}>
+            {USER_STATUS_MAP[value]}
+          </Tag>
+        )
+      }
     },
     { title: '创建时间', dataIndex: 'createTime' },
   ]
   const getTableData = async (searchFormData) => {
     try {
       const params = {
-        pageNum: 1,
-        pageSize: 10,
+        current: pagination.current,
+        pageSize: pagination.pageSize,
         ...searchFormData
       }
       const res = await getUserTableDataApi(params)
       const { list, total } = res.data
       setTableData(list)
-      setTableDataTotal(total)
+      setPagination({
+        ...pagination,
+        total
+      })
 
     } catch (err) {
       console.error(err)
@@ -74,7 +94,7 @@ const UserTable = () => {
             <Input placeholder="昵称" />
           </Form.Item>
           <Form.Item name="status">
-            <Select placeholder="状态" options={ statusOptions } />
+            <Select placeholder="状态" options={ statusOptions } allowClear />
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit">搜索</Button>
@@ -84,7 +104,8 @@ const UserTable = () => {
       <Table
         rowKey="id"
         dataSource={tableData}
-        columns={columns} />
+        columns={columns}
+        pagination={pagination} />
     </div>
   )
 }
