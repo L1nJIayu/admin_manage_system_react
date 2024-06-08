@@ -1,4 +1,4 @@
-import { Form, Input, Button, Table } from "antd"
+import { Form, Input, Button, Table, Tag } from "antd"
 import './userTable.scss'
 import { useForm } from "antd/es/form/Form";
 import { Select } from "antd";
@@ -31,7 +31,6 @@ const UserTable = () => {
 
   const [ tableData, setTableData ] = useState([])
   const [ tableDataTotal, setTableDataTotal ] = useState(0)
-
   
   const columns = [
     { title: 'ID', dataIndex: 'id' },
@@ -41,9 +40,7 @@ const UserTable = () => {
     {
       title: '状态',
       dataIndex: 'status',
-      render: (value) => {
-        return USER_STATUS_DICT[value]
-      }
+      render: (value) => <Tag color="success">{USER_STATUS_DICT[value]}</Tag>
     },
     { title: '创建时间', dataIndex: 'createTime' },
   ]
@@ -58,7 +55,6 @@ const UserTable = () => {
       const { list, total } = res.data
       setTableData(list)
       setTableDataTotal(total)
-
 
     } catch (err) {
       console.error(err)
