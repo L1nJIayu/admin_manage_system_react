@@ -31,6 +31,10 @@ const UserTable = () => {
     getTableData()
   }, [])
 
+  const modifyUser = (id) => {
+    console.log(id)
+  }
+
   const [ tableData, setTableData ] = useState([])
   const [ pagination, setPagination ] = useState({
     position: 'topLeft',
@@ -60,6 +64,14 @@ const UserTable = () => {
       }
     },
     { title: '创建时间', dataIndex: 'createTime' },
+    {
+      title: '操作',
+      dataIndex: 'id',
+      render: (id) => 
+        <Button type="text" danger onClick={() => modifyUser(id)}>
+          编辑
+        </Button>
+    }
   ]
   const getTableData = async (searchFormData) => {
     try {
