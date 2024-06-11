@@ -24,9 +24,9 @@ const UserTable = () => {
     status: null
   }
   const search = (values) => {
-    console.log('search')
     getTableData(values)
   }
+  
   useEffect(() => {
     getTableData()
   }, [])

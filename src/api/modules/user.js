@@ -17,6 +17,14 @@ const tableData = [
     status: 0,
     createTime: '2024-06-08 12:33:09'
   },
+  {
+    id: 3,
+    username: 'user2',
+    nickName: 'Sa',
+    email: 'sa@163.com',
+    status: 0,
+    createTime: '2024-06-11 12:33:09'
+  },
 ]
 
 export function getUserTableDataApi(params) {
